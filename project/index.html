@@ -14,11 +14,11 @@
   <body>
     <header class="site-header">
       <div class="layout site-header__inner">
-        <a class="site-header__brand" href="#top">STORY / 01</a>
+        <a class="site-header__brand" href="#top">Проблема потребления памяти Java</a>
         <nav class="site-header__nav" aria-label="Навигация по истории">
           <a href="#about">О главном</a>
           <a href="#details">Детали</a>
-          <a href="#contact">Действие</a>
+          <a href="#contact">Поддержать</a>
         </nav>
       </div>
     </header>
@@ -27,11 +27,10 @@
       <!-- Контрастный hero: текст и сводный блок образуют Grid. -->
       <section class="hero panel panel--wide" aria-labelledby="hero-title">
         <div class="hero__main">
-          <p class="label">Тема / Имя героя</p>
-          <h1 id="hero-title">Главная мысль в коротком заголовке</h1>
+          <p class="label">Если бы у меня были неограниченные ресурсы</p>
+          <h1 id="hero-title">Проблема потребления памяти Java</h1>
           <p class="hero__lead">
-            Здесь размещается вводная формулировка: что произошло, к чему
-            стремится герой или какую идею он хочет воплотить.
+            В экосистеме JVM, есть проблемы с памятью, которые можно решить.
           </p>
         </div>
 
@@ -45,62 +44,107 @@
       <!-- Универсальный рассказ без привязки к одной из десяти тем. -->
       <section id="about" class="panel story" aria-labelledby="about-title">
         <p class="label">01 / История</p>
-        <h2 id="about-title">Контекст и центральная идея</h2>
+        <h2 id="about-title">Во время работы с Java сталкивались ли вы с проблемами, которые хочется решить?</h2>
         <p class="story__lead">
-          Один заметный абзац объясняет исходную ситуацию и помогает понять
-          героя без длинной биографии.
+          Много софта в JVM экосистеме имеют плохой performance и потребляют много памяти на больших масштабах.  
         </p>
         <p>
-          Следующий абзац раскрывает действие, выбор, интерес или предполагаемое
-          решение. Содержание определяется ТЗ, а не размером шаблона.
+          При том проблема не в возможностях java, а в плохо написанном коде. Как пример Gradle, Android studio и R8.
         </p>
+
+        <div class="story__stats">
+          <div class="story__stat">
+            <p class="story__stat-value">41 ГБ</p>
+            <p class="story__stat-label">
+              памяти занимала Android Studio в момент нехватки ОЗУ
+            </p>
+          </div>
+          <div class="story__stat">
+            <p class="story__stat-value">8 ч 40 мин</p>
+            <p class="story__stat-label">
+              шла сборка <code>mobile-bank-android</code>, пока не упала с
+              <code>OutOfMemoryError</code>
+            </p>
+          </div>
+          <div class="story__stat">
+            <p class="story__stat-value">41.6%</p>
+            <p class="story__stat-label">
+              всей памяти съедает Gradle core — 6.4 ГБ из 15.4 ГБ
+            </p>
+          </div>
+        </div>
+
+        <p class="story__note">
+          Это не гипотетические оценки — это реальные замеры на одном проекте.
+          Больше половины памяти уходит не на код приложения, а на инфраструктуру сборки.
+        </p>
+
       </section>
 
       <aside class="panel key-point" aria-label="Ключевая мысль">
-        <p class="label">Ключевая мысль</p>
-        <p>«Короткая цитата или формулировка, которая задаёт характер истории»</p>
+        <div class="key-point__media">
+          <img 
+            src="images/memory.jpeg" 
+            alt="Скриншот диалога принудительного завершения программ, где Android Studio потребляет 41 ГБ памяти" 
+            class="key-point__image"
+          />
+        </div>
+        <div class="key-point__content">
+          <p class="label">Ключевая мысль</p>
+          <p>«41 ГБ памяти на Android Studio — цена плохо написанного кода»</p>
+        </div>
       </aside>
 
       <!-- Три карточки показывают базовую модульную Grid-композицию. -->
       <section id="details" class="panel panel--wide details" aria-labelledby="details-title">
         <div class="details__heading">
-          <p class="label">02 / Доказательства</p>
-          <h2 id="details-title">Три факта или этапа</h2>
+          <p class="label">02 / Проблемы</p>
+          <h2 id="details-title">Три факта</h2>
         </div>
 
         <div class="details__grid">
           <article class="data-card">
             <p class="data-card__index">01</p>
-            <h3 class="data-card__title">Первый факт</h3>
-            <p class="data-card__text">Контекст, причина или отправная точка.</p>
+            <h3 class="data-card__title">IDEA потребляет много памяти</h3>
+            <p class="data-card__text">Это не баг одной IDE. Тот же паттерн — в Gradle, R8, Kotlin-плагине
+      и эмуляторе. Проблема в подходе, а не в конкретном инструменте. </p>
           </article>
 
           <article class="data-card data-card--accent">
             <p class="data-card__index">02</p>
-            <h3 class="data-card__title">Второй факт</h3>
-            <p class="data-card__text">Главное действие, решение или выбор.</p>
+            <h3 class="data-card__title">Долго работает на больших проектах</h3>
+            <p class="data-card__text">Проблема не заканчивается на IDE. Те же ошибки в коде бэкенда
+приводят к раздутым heap-дампам, частым GC-паузам и падениям
+под нагрузкой.</p>
           </article>
 
           <article class="data-card">
             <p class="data-card__index">03</p>
-            <h3 class="data-card__title">Третий факт</h3>
-            <p class="data-card__text">Результат или ожидаемое изменение.</p>
+            <h3 class="data-card__title">Потребление памяти связано с плохо написанным кодом</h3>
+            <p class="data-card__text">Java сама по себе не медленная — современные JVM умеют работать
+      экономно. Значит, проблему можно решить на уровне кода и тулинга.</p>
           </article>
         </div>
       </section>
 
       <section id="contact" class="panel panel--wide action" aria-labelledby="action-title">
         <div>
-          <p class="label">03 / Следующий шаг</p>
-          <h2 id="action-title">Понятное завершение истории</h2>
+          <p class="label">03 / Собираем команду</p>
+          <p class="action__lead">
+            Ищем разработчиков, которым интересно разбираться с аллокациями,
+            профилировать горячие пути и делать инструменты быстрее.
+          </p>
+          <p class="action__accent">
+            Если это про вас — напишите, обсудим.
+          </p>
         </div>
-        <a class="button" href="#top">Основное действие</a>
+        <a class="button" href="mailto:svetlichnyi.maxim@gmail.com">Написать на почту</a>
       </section>
     </main>
 
     <footer class="site-footer">
       <div class="layout site-footer__inner">
-        <p>Интервью и реализация · Имя исполнителя</p>
+        <p>Учебный проект · Гайдадина Мария</p>
         <p>2026</p>
       </div>
     </footer>

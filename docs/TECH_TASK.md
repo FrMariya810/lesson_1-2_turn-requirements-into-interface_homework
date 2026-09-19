@@ -1,3 +1,7 @@
+https://github.com/kroune/lesson_1-2_turn-requirements-into-interface_practice/blob/master/tech-task-template.md
+https://github.com/kroune/lesson_1-2_turn-requirements-into-interface_practice/pull/3
+
+
 # Шаблон ТЗ: история о человеке
 
 ## Темы на выбор
