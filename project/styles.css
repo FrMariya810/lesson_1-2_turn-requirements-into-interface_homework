@@ -33,6 +33,11 @@ a:focus-visible {
   outline-offset: 4px;
 }
 
+img {
+  max-width: 100%;
+  height: auto;
+}
+
 .layout {
   width: min(var(--layout), calc(100% - 64px));
   margin-inline: auto;
@@ -93,6 +98,10 @@ a:focus-visible {
   gap: 72px;
   min-height: 520px;
   align-items: end;
+}
+
+.hero__main {
+  min-width: 0;
 }
 
 .label,
@@ -161,74 +170,59 @@ h2 {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1px;
-  margin-top: 32px;
+  margin: 32px 0;
   background: var(--color-line);
   border: 1px solid var(--color-line);
 }
 
 .story__stat {
-  padding: 24px;
-  background: var(--color-panel);
+  padding: 22px;
+  background: var(--color-bg);
 }
 
 .story__stat-value {
-  margin: 0 0 8px;
+  margin-bottom: 8px;
   color: var(--color-accent);
-  font-family: "Courier New", monospace;
   font-size: 28px;
-  font-weight: 700;
+  font-weight: 800;
+  line-height: 1.1;
 }
 
-.story__stat-label,
-.story__note {
-  margin: 0;
+.story__stat-label {
+  margin-bottom: 0;
   color: var(--color-muted);
   font-size: 14px;
 }
 
 .story__note {
-  margin-top: 24px;
-  padding-top: 16px;
-  border-top: 1px solid var(--color-line);
+  color: var(--color-muted);
 }
 
-@media (max-width: 720px) {
-  .story__stats {
-    grid-template-columns: 1fr;
-  }
+code {
+  font-family: "Courier New", monospace;
 }
 
 .key-point {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 0;
 }
 
 .key-point__media {
-  width: 100%;
-  overflow: hidden;
   margin-bottom: 28px;
-  border-bottom: 1px solid var(--color-line);
 }
 
 .key-point__image {
   display: block;
   width: 100%;
-  height: auto;
-  filter: brightness(0.85) contrast(1.1); 
-  transition: filter 0.3s ease;
-}
-
-.key-point__image:hover {
-  filter: brightness(1) contrast(1);
+  border: 1px solid var(--color-line);
 }
 
 .key-point__content {
-  padding: 0 42px 42px 42px;
+  margin-top: auto;
 }
 
-.key-point__content p:last-child {
+.key-point p:last-child {
   margin-bottom: 0;
   font-size: 24px;
   font-weight: 700;
@@ -285,23 +279,21 @@ h2 {
   justify-content: space-between;
   gap: 48px;
 }
+
+.action h2 {
+  margin-bottom: 0;
+}
+
 .action__lead {
-  max-width: 560px;
-  margin: 12px 0 0;
+  max-width: 720px;
   color: var(--color-muted);
-  font-size: 16px;
 }
 
 .action__accent {
-  max-width: 560px;
-  margin: 12px 0 0;
-  color: var(--color-accent);
-  font-size: 20px;
+  margin-bottom: 0;
+  font-size: 24px;
   font-weight: 700;
   line-height: 1.3;
-}
-.action h2 {
-  margin-bottom: 0;
 }
 
 .button {
@@ -322,4 +314,131 @@ h2 {
 
 .site-footer p {
   margin-bottom: 0;
+}
+
+@media (max-width: 1024px) {
+  h1 {
+    font-size: 56px;
+  }
+
+  h2 {
+    font-size: 32px;
+  }
+
+  .hero {
+    gap: 48px;
+  }
+}
+
+@media (max-width: 900px) {
+  .page-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 36px;
+    min-height: auto;
+    align-items: start;
+  }
+
+  .hero__summary {
+    padding-left: 0;
+    padding-top: 28px;
+    border-left: 0;
+    border-top: 1px solid var(--color-line);
+  }
+
+  .details__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .story__stats {
+    grid-template-columns: 1fr;
+  }
+
+  .action {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .button {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media (max-width: 640px) {
+  .layout {
+    width: min(var(--layout), calc(100% - 32px));
+  }
+
+  .page-grid {
+    margin-block: 32px;
+  }
+
+  .panel {
+    padding: 28px;
+  }
+
+  h1 {
+    font-size: 40px;
+  }
+
+  h2 {
+    font-size: 28px;
+  }
+
+  .hero__lead,
+  .story__lead {
+    font-size: 17px;
+  }
+
+  .hero__result {
+    font-size: 22px;
+  }
+
+  .key-point p:last-child {
+    font-size: 20px;
+  }
+
+  .data-card {
+    min-height: auto;
+  }
+
+  .details__heading {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .site-header__inner,
+  .site-footer__inner {
+    min-height: auto;
+    padding-block: 16px;
+  }
+
+  .site-header__inner {
+    flex-wrap: wrap;
+    gap: 14px;
+  }
+
+  .site-header__nav {
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .site-footer__inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .action {
+    gap: 24px;
+  }
+
+  .action__accent {
+    font-size: 20px;
+  }
 }
